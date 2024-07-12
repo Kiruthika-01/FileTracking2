@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from './context';
-import '../cssfolder/pending.css'; // Import the CSS file
+import '../cssfolder/pending.css';
 
 export default function Pending() {
     const { employeeMail } = useContext(AuthContext);
@@ -19,7 +19,6 @@ export default function Pending() {
             try {
                 const response = await axios.get(`http://localhost:8080/delayed/${employeeMail}`);
                 setTasks(response.data);
-                console.log(response.data);
                 setLoading(false);
             } catch (err) {
                 setError(err);
