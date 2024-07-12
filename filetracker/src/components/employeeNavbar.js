@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../adminNavbar.css';
+import '../cssfolder/adminNavbar.css';
 import { AuthContext } from './context';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';

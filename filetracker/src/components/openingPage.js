@@ -4,32 +4,32 @@ import "../cssfolder/openingPage.css";
 
 export default function OpeningPage() {
   return (
-    <div className="card-container">
-      <div className="welcome-text">Welcome to FileTracker App</div>
+    <div className="openingpage-card-container">
+      <div className="openingpage-welcome-text">Welcome to FileTracker App</div>
       
-      <div className="card-row">
-        <div className="card">
-          <Link to="/admin" className="card-link">
+      <div className="openingpage-card-row">
+        <Link to="/admin" className="openingpage-card-link">
+          <div className="openingpage-card">
             <h2>Admin Login</h2>
-          </Link>
-        </div>
-        <div className="card">
-          <Link to="/office" className="card-link">
+          </div>
+        </Link>
+        <Link to="/office" className="openingpage-card-link">
+          <div className="openingpage-card">
             <h2>Office Login</h2>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
-      <div className="card-row">
-        <div className="card">
-          <Link to="/employee" className="card-link">
+      <div className="openingpage-card-row">
+        <Link to="/employee" className="openingpage-card-link">
+          <div className="openingpage-card">
             <h2>Employee Login</h2>
-          </Link>
-        </div>
-        <div className="card">
-          <Link to="/monitoring" className="card-link">
+          </div>
+        </Link>
+        <Link to="/monitoring" className="openingpage-card-link">
+          <div className="openingpage-card">
             <h2>Monitoring</h2>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     </div>
   );

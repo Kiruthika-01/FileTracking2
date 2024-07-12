@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import '../adminWorking.css';
+import '../cssfolder/adminWorking.css';
 
 export default function OfficeWorking() {
     const navigate = useNavigate();
