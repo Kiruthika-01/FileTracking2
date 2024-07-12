@@ -5,7 +5,10 @@ import java.util.Map;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,13 +17,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springboot.springboot.entity.AdminUsers;
 import com.springboot.springboot.entity.ApplicationSteps;
 import com.springboot.springboot.entity.ApplicationType;
 import com.springboot.springboot.entity.Applications;
 import com.springboot.springboot.entity.EmployeeUsers;
+import com.springboot.springboot.entity.GO;
 import com.springboot.springboot.entity.OfficeUsers;
 import com.springboot.springboot.entity.Rejected;
 import com.springboot.springboot.repository.AdminUsersRepo;
@@ -28,6 +34,7 @@ import com.springboot.springboot.repository.ApplicationStepsRepo;
 import com.springboot.springboot.repository.ApplicationTypeRepo;
 import com.springboot.springboot.repository.ApplicationsRepo;
 import com.springboot.springboot.repository.EmployeeUsersRepo;
+import com.springboot.springboot.repository.GORepo;
 import com.springboot.springboot.repository.OfficeUsersRepo;
 import com.springboot.springboot.repository.RejectedRepo;
 
@@ -59,6 +66,9 @@ public class UserController {
 
     @Autowired
     private RejectedRepo rejectedRepo;
+
+    @Autowired
+    private GORepo goRepo;
 
     @GetMapping("/AdminLogin/{email}/{password}")
     public Boolean AdminLogin(@PathVariable String email, @PathVariable String password)
@@ -451,5 +461,35 @@ public class UserController {
         );
 
         rejectedRepo.deleteById(applicationNumber);
+    }
+
+    @PostMapping("/goupload")
+    public String goupload(@RequestParam("goNumber") String goNumber, @RequestParam("file") MultipartFile pdfFile) {
+        try {
+            goRepo.savePdf(goNumber, pdfFile.getBytes(),LocalDate.now().toString());
+            return "Document uploaded successfully!";
+        } catch (Exception e) {
+            return "Failed to upload document.";
+        }
+    }
+
+    @GetMapping("/getgo")
+    public List<GO> getAllDocuments() {
+        return goRepo.findAll();
+    }
+
+    @GetMapping("/downloadgo/{goNumber}")
+    public ResponseEntity<ByteArrayResource> downloadDocument(@PathVariable String goNumber) {
+        GO go = goRepo.findById(goNumber).orElseThrow(() -> new RuntimeException("Document not found"));
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_PDF)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + goNumber + ".pdf\"")
+                .body(new ByteArrayResource(go.getPdfFile()));
+    }
+
+    @DeleteMapping("/deletego/{goNumber}")
+    public void deleteGo(@PathVariable String goNumber)
+    {
+        goRepo.deleteById(goNumber);
     }
 }
