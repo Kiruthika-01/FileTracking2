@@ -5,6 +5,7 @@ import '../cssfolder/officePage.css'; // Ensure the correct path to your CSS fil
 import { AuthContext } from './context';
 import Navbar from './navbar';
 import DomainIcon from '@mui/icons-material/Domain';
+
 export default function OfficePage() {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -44,8 +45,9 @@ export default function OfficePage() {
     };
 
     return (
+        <div>
+            <Navbar />
         <div className="background-container">
-            {isOfficeLoggedIn ? null : <Navbar />}
             <div className="office-container">
                 <h1 className="office-title">
                     <DomainIcon className="icon-title" style={{ fontSize: 40 }} />
@@ -68,6 +70,7 @@ export default function OfficePage() {
                     <div className="response-message">{message}</div>
                 )}
             </div>
+        </div>
         </div>
     );
 }
