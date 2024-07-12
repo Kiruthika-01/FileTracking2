@@ -32,10 +32,10 @@ export default function RejectedApplications() {
                 <ul className="rejected-applications-list">
                     {rejectedApplications.map((application, index) => (
                         <li key={index} className="rejected-application-item">
-                            <strong>Application Number:</strong> {application.applicationNumber} <br />
-                            <strong>Date of Rejection:</strong> {application.dateOfRejection} <br />
-                            <strong>Rejected By:</strong> {application.employeeId} <br />
-                            <strong>Reason for Rejection:</strong> {application.reasonForRejection} <br />
+                            <strong>Application Number: </strong> {application.applicationNumber} <br />
+                            <strong>Date of Rejection: </strong> {application.dateOfRejection} <br />
+                            <strong>Rejected By: </strong> {application.employeeId} <br />
+                            <strong>Reason for Rejection: </strong> {application.reasonForRejection} <br />
                             <button onClick={() => handleReopen(application.applicationNumber)}>Reopen</button>
                         </li>
                     ))}
