@@ -24,6 +24,9 @@ import AddAppType from './components/addAppType';
 import EmployeeNavbar from './components/employeeNavbar';
 import Pending from './components/peding';
 import RejectedApplications from './components/rejectedApplication';
+import OfficeGO from './components/officeGO';
+import EmployeeGO from './components/officeGO';
+
 
 
 function App() {
@@ -81,6 +84,8 @@ const[officeMail,setOfficeMail] = useState('');
         <Route path="/rejected-application" element={<RejectedApplications />} />
         <Route path="/addAppType" element={<AddAppType />} />
         <Route path="/pending" element={<Pending />} />
+        <Route path="/officeGO" element={<OfficeGO />} />
+        <Route path="/employeeGO" element={<EmployeeGO />} />
         </Routes>
       </Router>
     </div>

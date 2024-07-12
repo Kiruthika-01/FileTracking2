@@ -19,7 +19,7 @@ export default function EmployeeNavbar() {
                 <li><Link to="/employeeWorking">Home</Link></li>
                 <li><Link to="/pending">Delayed applications</Link></li>
                 <li><Link to="/officeabout">About Us</Link></li>
-                <li><Link to="/officeGO">G.O</Link></li>
+                <li><Link to="/employeeGO">G.O</Link></li>
             </ul>
             <button onClick={handleLogout}>Logout</button>
         </nav>
