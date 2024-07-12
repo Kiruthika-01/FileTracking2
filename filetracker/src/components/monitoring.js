@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import '../Monitoring.css';
+import '../cssfolder/monitoring.css';
 import Navbar from './navbar';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 

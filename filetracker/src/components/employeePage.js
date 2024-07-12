@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from './context';
-import '../employeePage.css';
+import '../cssfolder/employeePage.css';
 import Navbar from './navbar';
 import ManIcon from '@mui/icons-material/Man';
 

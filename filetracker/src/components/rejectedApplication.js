@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "./context";
-import "../RejectedApplications.css";
+import "../cssfolder/rejectedApplications.css";
 
 export default function RejectedApplications() {
     const { officeId } = useContext(AuthContext);

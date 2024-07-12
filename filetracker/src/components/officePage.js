@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../officePage.css'; // Ensure the correct path to your CSS file
+import '../cssfolder/officePage.css'; // Ensure the correct path to your CSS file
 import { AuthContext } from './context';
 import Navbar from './navbar';
 import DomainIcon from '@mui/icons-material/Domain';

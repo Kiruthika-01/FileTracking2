@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { MenuItem } from '@mui/material';
 import axios from 'axios';
-import '../addApplications.css';
+import '../cssfolder/addApplication.css';
 import { AuthContext } from './context';
 
 export default function AddApplication() {

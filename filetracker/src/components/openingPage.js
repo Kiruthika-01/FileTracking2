@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "../OpeningPage.css";
+import "../cssfolder/openingPage.css";
 
 export default function OpeningPage() {
   return (

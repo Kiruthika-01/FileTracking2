@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from './context';
-import '../Pending.css'; // Import the CSS file
+import '../cssfolder/pending.css'; // Import the CSS file
 
 export default function Pending() {
     const { employeeMail } = useContext(AuthContext);

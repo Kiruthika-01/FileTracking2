@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../adminPage.css';
+import '../cssfolder/adminPage.css';
 import { AuthContext } from './context';
 import Navbar from './navbar';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import '../addAppType.css';
+import '../cssfolder/addAppType.css';
 import { AuthContext } from './context';
 
 export default function AddAppType() {
