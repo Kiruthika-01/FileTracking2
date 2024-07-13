@@ -1,4 +1,6 @@
-
+body{
+    background-color: #0c0c0d;
+}
 .admingo-container {
     width: 100%; 
     margin: 0 auto; 
@@ -30,7 +32,8 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    width: 250px; /* Full width */
+    width: 250px;
+    background-color: #d3c2e3;
 }
 
 .admingo-button {
