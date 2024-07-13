@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../cssfolder/adminGO.css";
+import "../cssfolder/employeeGO.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload} from '@fortawesome/free-solid-svg-icons';
 
@@ -26,9 +26,9 @@ export default function EmployeeGO() {
     };
 
     return (
-        <div>
-            <h2>Uploaded Documents</h2>
-            <table class="go">
+        <div className="employeego-container">
+            <h2 className="employeego-title">Uploaded Documents</h2>
+            <table class="employee-go-table">
                 <thead>
                     <tr>
                         <th>GO Number</th>

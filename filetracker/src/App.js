@@ -25,7 +25,7 @@ import EmployeeNavbar from './components/employeeNavbar';
 import Pending from './components/peding';
 import RejectedApplications from './components/rejectedApplication';
 import OfficeGO from './components/officeGO';
-import EmployeeGO from './components/officeGO';
+import EmployeeGO from './components/employeeGO';
 
 
 
