@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { TextField, Button, Grid, Typography } from '@mui/material';
+import { TextField, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import '../cssfolder/deleteOffice.css';
 
 function DeleteOffice() {
     const [officeId, setOfficeId] = useState('');
@@ -15,7 +16,7 @@ function DeleteOffice() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.delete(`http://localhost:8080/deleteOffice/${officeId}`)
-                    .then(response => {
+            .then(response => {
                 setResponseMessage(response.data);
     
                 if (response.data === "Office Deleted") {
@@ -34,9 +35,9 @@ function DeleteOffice() {
     };
 
     return (
-        <Grid container justifyContent="center" alignItems="center" style={{ minHeight: '80vh' }}>
-            <Grid item xs={12} sm={8} md={6} lg={4}>
-                <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <div className="deleteOffice-container">
+            <div className="deleteOffice-formContainer">
+                <div className="deleteOffice-header">
                     <Typography variant="h4" gutterBottom>Delete Office</Typography>
                 </div>
                 <form onSubmit={handleSubmit}>
@@ -46,21 +47,21 @@ function DeleteOffice() {
                         onChange={handleChange}
                         label="Office ID"
                         variant="outlined"
-                        margin="normal"
                         fullWidth
                         required
+                        className="deleteOffice-textField"
                     />
-                    <Button type="submit" variant="contained" color="primary" fullWidth style={{ marginTop: '20px' }}>
+                    <Button type="submit" variant="contained" color="primary" fullWidth className="deleteOffice-button">
                         Delete Office
                     </Button>
                     {responseMessage && (
-                        <Typography variant="body1" style={{ marginTop: '10px' }}>
+                        <Typography variant="body1" className="deleteOffice-responseMessage">
                             {responseMessage}
                         </Typography>
                     )}
                 </form>
-            </Grid>
-        </Grid>
+            </div>
+        </div>
     );
 }
 
