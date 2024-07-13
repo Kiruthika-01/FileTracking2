@@ -1,23 +1,28 @@
-.background-container {
+.office-page-container {
+    flex: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: url('https://w0.peakpx.com/wallpaper/403/852/HD-wallpaper-abstract-purple-purple-and-teal.jpg') no-repeat center center fixed;
+    margin-top: 50px;
+    background-image: url('https://w0.peakpx.com/wallpaper/403/852/HD-wallpaper-abstract-purple-purple-and-teal.jpg');
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 110vh;
+    flex-direction: column;
 }
 
 .office-container {
-    /* Make background slightly transparent */
-    padding: 20px; /* Add more padding for better spacing */
-    border-radius: 10px; /* Increase border-radius for rounded corners */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance box-shadow for depth */
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin: 0 20px;
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+   
     
+    margin-top: 100px;
+   
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .office-title {
@@ -27,25 +32,19 @@
     margin-bottom: 20px;
 }
 
-.icon-title {
-    margin-right: 10px;
-    color: black;
-}
 
 .form-label {
     display: block;
-    margin-bottom: 10px;
-    text-align: left;
-    color: #555; /* Change label color for better contrast */
+    margin-bottom: 5px;
 }
 
 .form-input {
     width: 100%;
     padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    flex: 1;
-    
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 .submit-button {
@@ -55,17 +54,9 @@
     color: white;
     transition: background-color 0.3s ease;
     width: 150px; /* Adjust the width of the button */
-    margin-top:20px;
-    align-self: center;
-    cursor: pointer; /* Adjust the top margin */
+    margin-bottom: 300px; /* Adjust the top margin */
 }
 
 .submit-button:hover {
-    background-color: #003d80;
-}
-
-.response-message {
-    margin-top: 10px;
-    color: red;
-    
+    background-color: #0056b3;
 }

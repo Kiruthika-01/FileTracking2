@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../cssfolder/adminGO.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload,faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default function AdminGO() {
     const [goNumber, setGoNumber] = useState("");
@@ -74,12 +74,13 @@ export default function AdminGO() {
     };
 
     return (
-        <div>
-            <h1>AdminGO</h1>
-            <form onSubmit={handleSubmit}>
+        <div className="admingo-container">
+            <h1 className="admingo-title">AdminGO</h1>
+            <form className="admingo-form" onSubmit={handleSubmit}>
                 <div>
-                    <label>GO Number:</label>
+                    <label className="admingo-label">GO Number:</label>
                     <input
+                        className="admingo-input-text"
                         type="text"
                         value={goNumber}
                         onChange={handleGoNumberChange}
@@ -87,20 +88,21 @@ export default function AdminGO() {
                     />
                 </div>
                 <div>
-                    <label>Upload PDF:</label>
+                    <label className="admingo-label">Upload PDF:</label>
                     <input
+                        className="admingo-input-file"
                         type="file"
                         accept="application/pdf"
                         onChange={handleFileChange}
                         required
                     />
                     <br />
-                    <button type="submit">Upload</button>
+                    <button className="admingo-button" type="submit">Upload</button>
                 </div>
             </form>
-            {message && <p>{message}</p>}
-            <h2>Uploaded Documents</h2>
-            <table class="go">
+            {message && <p className="admingo-message">{message}</p>}
+            <h2 className="admingo-title">Uploaded Documents</h2>
+            <table className="admingo-go-table">
                 <thead>
                     <tr>
                         <th>GO Number</th>
@@ -115,7 +117,7 @@ export default function AdminGO() {
                             <td>{formatDate(doc.date)}</td>
                             <td>
                                 <a href={`http://localhost:8080/downloadgo/${doc.goNumber}`} download={`${doc.goNumber}.pdf`}>
-                                <FontAwesomeIcon icon={faDownload} />
+                                    <FontAwesomeIcon icon={faDownload} />
                                 </a>
                                 {"   |   "}
                                 <FontAwesomeIcon icon={faTrash} style={{ cursor: 'pointer' }} onClick={() => handleDelete(doc.goNumber)} />

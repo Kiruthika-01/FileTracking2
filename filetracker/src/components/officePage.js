@@ -47,7 +47,7 @@ export default function OfficePage() {
     return (
         <div>
             <Navbar />
-        <div className="background-container">
+        <div className="office-page-container">
             <div className="office-container">
                 <h1 className="office-title">
                     <DomainIcon className="icon-title" style={{ fontSize: 40 }} />
@@ -64,12 +64,13 @@ export default function OfficePage() {
                         <input className="form-input" type="password" value={password} onChange={handlePasswordChange} />
                     </label>
                     <br />
-                    <button className="submit-button" type="submit">Login</button>
                 </form>
                 {message && (
                     <div className="response-message">{message}</div>
                 )}
             </div>
+            <button className="submit-button" type="submit" onClick={handleSubmit}>Login</button>
+
         </div>
         </div>
     );

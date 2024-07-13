@@ -51,7 +51,7 @@
 .tracking-info {
     margin-top: 20px;
     color: white;
-    background-color: #b18de3;
+    background-color: #4c09a8;
     width: 600px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -60,7 +60,7 @@
 .tracking-info-item {
     margin-bottom: 10px;
     font-size: 20px;
-    text-align:start;
+    text-align:center;
 }
 
 .error-message {

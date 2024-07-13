@@ -1,55 +1,24 @@
-/* .admin-navbar {
-    background-color:blueviolet; 
-    color: #fff;
-    padding: 10px;
-    font-style: italic;
-}
-
-.admin-navbar ul {
-    list-style-type: none; 
-    padding: 0;
-}
-
-.admin-navbar ul li {
-    display: inline; 
-    margin-right: 20px; 
-}
-
-.admin-navbar ul li:last-child {
-    margin-right: 0; 
-}
-
-.admin-navbar a {
-    color: #fff;
-    text-decoration: none; 
-}
-
-.admin-navbar button {
-    background-color:red; 
-    color: #fff; 
-    border: none; 
-    padding: 8px 16px; 
-    cursor: pointer; 
-}
-
-.admin-navbar button:hover {
-    background-color: #0056b3; 
-} */
 .admin-navbar {
-    background-color:blueviolet; /* Dark background color */
-    color: #fff; /* Text color */
-    padding: 10px;
+    background-color:blueviolet;
+    color: #fff;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 25px;
     font-style:italic;
     font-weight: bold;
-     /* Padding around navbar */
+    /* position:fixed; */
+    border: 3px solid linear-gradient(135deg, #1a133d, #000000, #4a4075);
+    box-shadow: linear-gradient(135deg, #1a133d, #000000, #4a4075);
 }
 
 .admin-navbar ul {
-    list-style-type: none; /* Remove default list styling */
+    justify-content:space-evenly;
+    list-style-type: none;
     padding: 0;
-    margin: 0; /* Remove default margin */
-    display: flex; /* Use flexbox for horizontal alignment */
-    align-items: center; /* Center items vertically */
+    margin: 0; 
+    display: flex;
+    align-items: center;
 }
 
 .admin-navbar ul li {

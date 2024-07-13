@@ -1,66 +1,68 @@
-.background-container {
+.employee-page-container {
+    flex: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: url('https://w0.peakpx.com/wallpaper/403/852/HD-wallpaper-abstract-purple-purple-and-teal.jpg') no-repeat center center fixed;
+    margin-top: 0px;
+    background-image: url('https://w0.peakpx.com/wallpaper/403/852/HD-wallpaper-abstract-purple-purple-and-teal.jpg');
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 110vh;
+    flex-direction: column;
 }
 
-.admin-container {
-     /* Keep background color white for the form */
-    padding: 20px; /* Reduce padding to make the card smaller */
-    border-radius: 10px;
+.employee-container {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
    
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin: 0 20px; /* Reduce margin */
+    
+    margin-top: 100px;
+   
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.admin-title {
+.employee-title {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.icon-title {
-    margin-right: 10px;
-    color: black; /* Set the color of the icon to black */
-}
-
 .form-label {
     display: block;
-    margin-bottom: 10px;
-    text-align: left;
-    color: black; /* Ensure label color is black */
+    margin-bottom: 5px;
 }
 
 .form-input {
     width: 100%;
     padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    flex: 1;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 .submit-button {
+    display: block;
+    /* margin-top: 20px; */
     background-color: red;
     color: white;
     transition: background-color 0.3s ease;
     width: 150px; /* Adjust the width of the button */
-    margin-top: 20px; /* Add margin-top for spacing */
-    align-self: center; /* Center the button */
-    cursor: pointer;
+    margin-bottom: 300px; /* Adjust the top margin */
 }
 
 .submit-button:hover {
     background-color: #0056b3;
 }
 
-.response-message {
-    margin-top: 10px;
-    color: red;
+.navbar {
+    margin-bottom: 0;
+    background-color: blueviolet;
+    font-style: italic;
+    padding: 10px;
 }

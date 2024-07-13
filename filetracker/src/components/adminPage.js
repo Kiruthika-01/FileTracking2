@@ -46,7 +46,7 @@ export default function AdminPage() {
 
     return (
         <div>
-            {!isAdminLoggedIn && <Navbar />}
+            <Navbar />
             <div className="admin-page-container">
                 <div className="admin-container">
                     <h1 className="admin-title">
