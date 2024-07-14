@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AuthContext } from './context';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import '../cssfolder/addEmployee.css'; // Import the CSS file
 
 function AddEmployee() {
     const { officeId } = useContext(AuthContext);
@@ -11,7 +12,7 @@ function AddEmployee() {
     const [formData, setFormData] = useState({
         employeeId: '',
         employeeName: '',
-        employeeDesignation:'',
+        employeeDesignation: '',
         email: '',
         password: '',
         officeId: officeId
@@ -31,11 +32,11 @@ function AddEmployee() {
         axios.post('http://localhost:8080/addEmployee', formData)
             .then(response => {
                 setResponseMessage(response.data);
-    
+
                 if (response.data === "New Employee Added") {
                     setTimeout(() => {
                         navigate("/officeWorking");
-                    }, 1500); 
+                    }, 1500);
                 } else {
                     setTimeout(() => {
                         setResponseMessage('');
@@ -46,11 +47,10 @@ function AddEmployee() {
                 console.error('Error:', error);
             });
     };
-    
 
     return (
-        <Grid container justifyContent="center" alignItems="center" style={{ minHeight: '80vh' }}>
-            <Grid item xs={12} sm={8} md={6} lg={4}>
+        <Grid container justifyContent="center" alignItems="center" className="add-employee-container">
+            <Grid item xs={12} sm={8} md={6} lg={4} className="add-employee-form">
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                     <Typography variant="h4" gutterBottom>Add Employee</Typography>
                 </div>
