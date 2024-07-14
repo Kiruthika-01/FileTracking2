@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import DeleteIcon from '@mui/icons-material/Delete'; // Import DeleteIcon
+import '../cssfolder/deleteEmployee.css'; // Import the CSS file
 
 function DeleteEmployee() {
     const [employeeId, setEmployeeId] = useState('');
@@ -15,9 +17,9 @@ function DeleteEmployee() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.delete(`http://localhost:8080/deleteEmployee/${employeeId}`)
-                    .then(response => {
+            .then(response => {
                 setResponseMessage(response.data);
-    
+
                 if (response.data === "Employee Deleted") {
                     setTimeout(() => {
                         navigate("/officeWorking");
@@ -34,8 +36,8 @@ function DeleteEmployee() {
     };
 
     return (
-        <Grid container justifyContent="center" alignItems="center" style={{ minHeight: '80vh' }}>
-            <Grid item xs={12} sm={8} md={6} lg={4}>
+        <Grid container justifyContent="center" alignItems="center" className="delete-employee-container">
+            <Grid item xs={12} sm={8} md={6} lg={4} className="delete-employee-form">
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                     <Typography variant="h4" gutterBottom>Delete Employee</Typography>
                 </div>
@@ -50,7 +52,14 @@ function DeleteEmployee() {
                         fullWidth
                         required
                     />
-                    <Button type="submit" variant="contained" color="primary" fullWidth style={{ marginTop: '20px' }}>
+                    <Button 
+                        type="submit" 
+                        variant="contained" 
+                        color="primary" 
+                        fullWidth 
+                        style={{ marginTop: '20px' }}
+                        startIcon={<DeleteIcon />} // Add the DeleteIcon here
+                    >
                         Delete Employee
                     </Button>
                     {responseMessage && (

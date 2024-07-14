@@ -17,7 +17,6 @@ export default function AddApplication() {
         return `${day}-${month}-${year}`;
     };
 
-    
     const [applicationData, setApplicationData] = useState({
         applicationNumber: '',
         applicantName: '',
@@ -110,6 +109,8 @@ export default function AddApplication() {
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    InputProps={{ classes: { input: 'textfield-input' } }}
+                    InputLabelProps={{ classes: { root: 'textfield-label' } }}
                 >
                     {applicationTypes.map(type => (
                         <MenuItem key={type.applicationId} value={type.applicationId}>
@@ -125,6 +126,8 @@ export default function AddApplication() {
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    InputProps={{ classes: { input: 'textfield-input' } }}
+                    InputLabelProps={{ classes: { root: 'textfield-label' } }}
                 />
                 <TextField
                     label="Application Number"
@@ -134,6 +137,8 @@ export default function AddApplication() {
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    InputProps={{ classes: { input: 'textfield-input' } }}
+                    InputLabelProps={{ classes: { root: 'textfield-label' } }}
                 />
                 <TextField
                     label="Applicant Name"
@@ -143,6 +148,8 @@ export default function AddApplication() {
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    InputProps={{ classes: { input: 'textfield-input' } }}
+                    InputLabelProps={{ classes: { root: 'textfield-label' } }}
                 />
                 <TextField
                     label="Applicant Email"
@@ -152,6 +159,8 @@ export default function AddApplication() {
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    InputProps={{ classes: { input: 'textfield-input' } }}
+                    InputLabelProps={{ classes: { root: 'textfield-label' } }}
                 />
                 <TextField
                     label="Mobile Number"
@@ -161,6 +170,8 @@ export default function AddApplication() {
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    InputProps={{ classes: { input: 'textfield-input' } }}
+                    InputLabelProps={{ classes: { root: 'textfield-label' } }}
                 />
                 <TextField
                     label="Address"
@@ -170,8 +181,10 @@ export default function AddApplication() {
                     onChange={handleChange}
                     fullWidth
                     margin="normal"
+                    InputProps={{ classes: { input: 'textfield-input' } }}
+                    InputLabelProps={{ classes: { root: 'textfield-label' } }}
                 />
-               <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" color="primary">
                     Submit
                 </Button>
             </form>
