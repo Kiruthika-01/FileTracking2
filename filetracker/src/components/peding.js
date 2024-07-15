@@ -39,13 +39,13 @@ export default function Pending() {
 
     return (
         <div className="pending-container">
-            <h1>Delayed Work</h1>
-            <ul className="task-list">
+            <h1 className="pending-header">Delayed Work</h1>
+            <ul className="pending-list">
                 {tasks.map(task => (
-                    <li key={task.id} className="task-item">
-                        <div><strong>Application Number:</strong> {task.ApplicationNumber}</div>
-                        <div><strong>Status:</strong> {task.status}</div>
-                        <div><strong>Created At:</strong> {formatDate(task.created_at)}</div>
+                    <li key={task.id} className="pending-task-item">
+                        <div className="pending-task-header"><strong>Application Number:</strong> {task.ApplicationNumber}</div>
+                        <div className="pending-task-details"><strong>Status:</strong> {task.status}</div>
+                        <div className="pending-task-details"><strong>Created At:</strong> {formatDate(task.created_at)}</div>
                     </li>
                 ))}
             </ul>
