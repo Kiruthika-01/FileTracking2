@@ -47,7 +47,10 @@
 .employee-navbar button:hover {
     background-color: red; 
 }
-.employeeNavbar-link:hover {
-    background-color: rgb(2, 14, 71);
+.employeeNavbar-link {
     padding: 7px;
+}
+.employeeNavbar-link:hover {
+    background-color: rgb(57, 2, 79);
+    border-radius: 5px;
 }
