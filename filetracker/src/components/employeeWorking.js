@@ -52,9 +52,32 @@ export default function EmployeeWorking() {
     const handleComplete = async (taskId, ApplicationNumber) => {
         const comment = comments[taskId] || '-';
         try {
-            await axios.post(`http://localhost:8080/complete/${ApplicationNumber}/${comment}/${employeeMail}`);
+            const response=await axios.post(`http://localhost:8080/complete/${ApplicationNumber}/${comment}/${employeeMail}`);
             fetchPendingTasks();
             fetchDelayedCount();
+            if(response.data==="finished")
+            {
+                const name = await axios.get(`http://localhost:8080/getName/${ApplicationNumber}`);
+                const applicationName = await axios.get(`http://localhost:8080/getApplicationName/${ApplicationNumber}`);
+                const officeId = (await axios.get(`http://localhost:8080/getOfficeId/${employeeMail}`)).data;
+                const officeName =  await axios.get(`http://localhost:8080/getOfficeName/${officeId}`);
+                const mail = await axios.get(`http://localhost:8080/getMail/${ApplicationNumber}`)
+                const templateParams = {
+                    application_number:ApplicationNumber,
+                    applicant_name:name.data,
+                    application:applicationName.data,
+                    office_name:officeName.data,
+                    to_email:mail.data
+                };
+        
+        
+                emailjs.send("service_2sg82vx", "template_efj54fh", templateParams, "r7-vFKI6iM_8Dyl01")
+                    .then((response) => {
+                        console.log('Email successfully sent!', response.status, response.text);
+                    }, (err) => {
+                        console.error('Failed to send email:', err);
+                    });
+            }
         } catch (err) {
             console.error(`Failed to complete task ${taskId}:`, err);
         }

@@ -312,7 +312,7 @@ public class UserController {
     }
 
     @PostMapping("/complete/{ApplicationNumber}/{comment}/{employeeMail}")
-    public void completeApplication (@PathVariable String ApplicationNumber,@PathVariable String comment,@PathVariable String employeeMail)
+    public String completeApplication (@PathVariable String ApplicationNumber,@PathVariable String comment,@PathVariable String employeeMail)
     {
         String employeeEmail = employeeMail.replaceAll("[^a-zA-Z0-9]", "_");
         String sql = "DELETE FROM " + employeeEmail + " WHERE ApplicationNumber = ?";
@@ -345,11 +345,13 @@ public class UserController {
 
                 String updatingSQL = "UPDATE " + ApplicationNumber + " SET Date = ? WHERE Step_No = ?";
                 jdbcTemplate.update(updatingSQL,LocalDate.now().toString(),nextTask.get("Step_No"));
+                return "OK";
 
             }
             else
             {
                 applicationsRepo.edit(ApplicationNumber,LocalDate.now().toString());
+                return "finished";
             }
     }
 
