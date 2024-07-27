@@ -1,4 +1,4 @@
-.containerType {
+.addAppType-containerType {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
@@ -14,11 +14,11 @@ h1 {
     margin-bottom: 20px;
 }
 
-.form-groupType {
+.addAppType-form-groupType {
     margin-bottom: 15px;
 }
 
-.step {
+.addAppType-step {
     margin-bottom: 20px;
 }
 
