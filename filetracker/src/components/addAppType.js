@@ -77,10 +77,10 @@ export default function AddAppType() {
     };
 
     return (
-        <div className="containerType">
+        <div className="addAppType-containerType">
             <h1>New Application Type</h1>
             <form onSubmit={handleSubmit}>
-                <div className="form-groupType">
+                <div className="addAppType-form-groupType">
                     <label htmlFor="applicationId">Application ID:</label>
                     <input
                         type="text"
@@ -90,7 +90,7 @@ export default function AddAppType() {
                         required
                     />
                 </div>
-                <div className="form-groupType">
+                <div className="addAppType-form-groupType">
                     <label htmlFor="applicationName">Application Name:</label>
                     <input
                         type="text"
@@ -102,8 +102,8 @@ export default function AddAppType() {
                 </div>
                 <h2>Steps</h2>
                 {steps.map((step, index) => (
-                    <div className="step" key={index}>
-                        <div className="form-groupType">
+                    <div className="addAppType-step" key={index}>
+                        <div className="addAppType-form-groupType">
                             <label htmlFor={`employeeId_${index}`}>Employee ID:</label>
                             <select
                                 id={`employeeId_${index}`}
@@ -118,7 +118,7 @@ export default function AddAppType() {
                                 ))}
                             </select>
                         </div>
-                        <div className="form-groupType">
+                        <div className="addAppType-form-groupType">
                             <label htmlFor={`employeeName_${index}`}>Employee Name:</label>
                             <input
                                 type="text"
@@ -128,7 +128,7 @@ export default function AddAppType() {
                                 readOnly // Prevent manual editing
                             />
                         </div>
-                        <div className="form-groupType">
+                        <div className="addAppType-form-groupType">
                             <label htmlFor={`employeeDesignation_${index}`}>Employee Designation:</label>
                             <input
                                 type="text"
@@ -138,7 +138,7 @@ export default function AddAppType() {
                                 readOnly // Prevent manual editing
                             />
                         </div>
-                        <div className="form-groupType">
+                        <div className="addAppType-form-groupType">
                             <label htmlFor={`description_${index}`}>Description:</label>
                             <input
                                 type="text"
@@ -147,7 +147,7 @@ export default function AddAppType() {
                                 onChange={(e) => handleStepChange(index, 'description', e.target.value)}
                             />
                         </div>
-                        <div className="form-groupType">
+                        <div className="addAppType-form-groupType">
                             <label htmlFor={`noOfDays_${index}`}>No of Days:</label>
                             <input
                                 type="text"
