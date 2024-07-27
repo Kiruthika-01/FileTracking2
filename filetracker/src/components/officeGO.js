@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../cssfolder/adminGO.css";
+import "../cssfolder/officeGO.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload} from '@fortawesome/free-solid-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 export default function OfficeGO() {
     const [documents, setDocuments] = useState([]);
@@ -26,9 +26,9 @@ export default function OfficeGO() {
     };
 
     return (
-        <div>
-            <h2>Uploaded Documents</h2>
-            <table class="go">
+        <div className="officego-container">
+            <h2 className="officego-title">Uploaded Documents</h2>
+            <table className="officego-go-table">
                 <thead>
                     <tr>
                         <th>GO Number</th>
@@ -42,8 +42,12 @@ export default function OfficeGO() {
                             <td>{doc.goNumber}</td>
                             <td>{formatDate(doc.date)}</td>
                             <td>
-                                <a href={`http://localhost:8080/downloadgo/${doc.goNumber}`} download={`${doc.goNumber}.pdf`}>
-                                <FontAwesomeIcon icon={faDownload} />
+                                <a 
+                                    href={`http://localhost:8080/downloadgo/${doc.goNumber}`} 
+                                    download={`${doc.goNumber}.pdf`}
+                                    className="officego-button"
+                                >
+                                    <FontAwesomeIcon icon={faDownload} />
                                 </a>
                             </td>
                         </tr>
