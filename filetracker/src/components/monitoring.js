@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-import '../cssfolder/monitoring.css';
 import Navbar from './navbar';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 
@@ -16,7 +15,7 @@ export default function Monitoring() {
     };
 
     const handleTrackButtonClick = async () => {
-        setTrackingInfo(null);
+        setTrackingInfo([]);
         setError(null);
         try {
             const response = await axios.get(`http://localhost:8080/track/${applicationNumber}`);
@@ -27,40 +26,49 @@ export default function Monitoring() {
     };
 
     return (
-        <div>
+        <div className="bg-white min-h-screen p-4">
             <Navbar />
-            <div className="monitoring-backgroundpage">
-                <div className="monitoring-containercard">
-                    <h1>
-                        <AddLocationAltIcon style={{ verticalAlign: 'middle', marginRight: '10px', fontSize: '40px' }} />
-                        Track your Application
-                    </h1>
-                    <div className="input-container">
-                        <TextField
-                            type="text"
-                            name="application number"
-                            className="input-field"
-                            InputProps={{ className: 'input-field' }}
-                            label="Application Number"
-                            value={applicationNumber}
-                            onChange={handleApplicationNumberChange}
-                            multiline
-                            rows={1}                            
-                        />
-                        <Button className="track-button" variant="contained" onClick={handleTrackButtonClick}>Track</Button>
-                    </div>
-                    {error && <div className="error-message">{error}</div>}
+            <div className="bg-gray-100 p-8 rounded-lg shadow-lg max-w-md mx-auto mt-8">
+                <h1 className="text-2xl font-bold text-center mb-6 flex items-center justify-center text-gray-800">
+                    <AddLocationAltIcon style={{ fontSize: '40px', marginRight: '10px' }} />
+                    Track your Application
+                </h1>
+                <div className="mb-6">
+                    <TextField
+                        type="text"
+                        label="Application Number"
+                        variant="outlined"
+                        fullWidth
+                        value={applicationNumber}
+                        onChange={handleApplicationNumberChange}
+                        InputProps={{
+                            className: 'bg-white text-gray-800'
+                        }}
+                        InputLabelProps={{
+                            className: 'text-gray-600'
+                        }}
+                    />
                 </div>
-                {trackingInfo && trackingInfo.length > 0 && (
-                    <div className="tracking-info">
-                        <h2>Tracking Information</h2>
+                <div className="mb-6 text-center">
+                    <Button
+                        className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-300"
+                        variant="contained"
+                        onClick={handleTrackButtonClick}
+                    >
+                        Track
+                    </Button>
+                </div>
+                {error && <div className="text-red-500 text-center mb-4">{error}</div>}
+                {trackingInfo.length > 0 && (
+                    <div>
+                        <h2 className="text-xl font-semibold mb-4 text-gray-800">Tracking Information</h2>
                         {trackingInfo.map((info, index) => (
-                            <div key={index} className="tracking-info-item">
-                                <p>Status: {info.status}</p>
-                                <p>Assigned To: {info.Assigned_To}</p>
-                                <p>Date: {info.Date}</p>
-                                <p>Comments: {info.Comments}</p>
-                                <hr />
+                            <div key={index} className="mb-4 p-4 border border-gray-300 rounded-lg bg-white">
+                                <p className="text-gray-700">Status: {info.status}</p>
+                                <p className="text-gray-700">Assigned To: {info.Assigned_To}</p>
+                                <p className="text-gray-700">Date: {info.Date}</p>
+                                <p className="text-gray-700">Comments: {info.Comments}</p>
+                                <hr className="my-2 border-gray-300" />
                             </div>
                         ))}
                     </div>

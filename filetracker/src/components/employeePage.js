@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from './context';
-import '../cssfolder/employeePage.css';
 import Navbar from './navbar';
 import ManIcon from '@mui/icons-material/Man';
 
@@ -22,7 +21,6 @@ export default function EmployeePage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const response = await axios.get(`http://localhost:8080/EmployeeLogin/${employeeMail}/${password}`);
             if (response.data === true) {
@@ -43,30 +41,44 @@ export default function EmployeePage() {
     };
 
     return (
-        <div>
+        <div className="min-h-screen bg-white flex flex-col">
             <Navbar />
-            <div className="employee-page-container">
-                <div className="employee-container">
-                    <h1 className="employee-title">
-                        <ManIcon className="icon-title" style={{ fontSize: 40 }} />
+            <div className="flex flex-col items-center justify-center flex-grow p-8">
+                <div className="w-full max-w-md bg-black text-white rounded-lg shadow-lg p-8">
+                    <h1 className="text-3xl font-bold mb-6 flex items-center justify-center text-gray-300">
+                        <ManIcon className="mr-3" style={{ fontSize: '40px' }} />
                         Employee Login
                     </h1>
                     <form onSubmit={handleSubmit}>
-                        <label className="form-label">
-                            Email:
-                            <input className="form-input" type="email" value={employeeMail} onChange={handleEmailChange} />
-                        </label>
-                        <br />
-                        <label className="form-label">
-                            Password:
-                            <input className="form-input" type="password" value={password} onChange={handlePasswordChange} />
-                        </label>
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium mb-2 text-gray-300">Email:</label>
+                            <input 
+                                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+                                type="email" 
+                                value={employeeMail} 
+                                onChange={handleEmailChange} 
+                            />
+                        </div>
+                        <div className="mb-6">
+                            <label className="block text-sm font-medium mb-2 text-gray-300">Password:</label>
+                            <input 
+                                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+                                type="password" 
+                                value={password} 
+                                onChange={handlePasswordChange} 
+                            />
+                        </div>
+                        {message && (
+                            <div className="mb-4 text-center text-red-500">{message}</div>
+                        )}
+                        <button 
+                            className="w-full py-3 rounded-lg bg-gray-700 text-white font-bold hover:bg-gray-600 transition-colors duration-300"
+                            type="submit"
+                        >
+                            Login
+                        </button>
                     </form>
-                    {message && (
-                        <div className="response-message">{message}</div>
-                    )}
                 </div>
-                <button className="submit-button" type="submit" onClick={handleSubmit}>Login</button>
             </div>
         </div>
     );

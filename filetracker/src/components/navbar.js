@@ -1,19 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../cssfolder/navbar.css'; 
 
 export default function Navbar() {
     return (
-        <nav className="navbar">
-            <div className="logo">
-                <h1>Navbar</h1>
+        <nav className="bg-black text-white p-2 shadow-md">
+            <div className="container mx-auto flex items-center justify-between h-12">
+                <div className="logo">
+                    <h1 className="text-xl font-semibold">Navbar</h1>
+                </div>
+                <ul className="nav-links flex space-x-4">
+                    <li>
+                        <Link 
+                            to="/admin" 
+                            className="text-sm font-medium hover:text-gray-300 transition-colors duration-300"
+                        >
+                            Admin Login
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                            to="/office" 
+                            className="text-sm font-medium hover:text-gray-300 transition-colors duration-300"
+                        >
+                            Office Login
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                            to="/employee" 
+                            className="text-sm font-medium hover:text-gray-300 transition-colors duration-300"
+                        >
+                            Employee Login
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                            to="/monitoring" 
+                            className="text-sm font-medium hover:text-gray-300 transition-colors duration-300"
+                        >
+                            Track Application
+                        </Link>
+                    </li>
+                </ul>
             </div>
-            <ul className="nav-links">
-                <li><Link to="/admin">Admin Login</Link></li>
-                <li><Link to="/office">Office Login</Link></li>
-                <li><Link to="/employee">Employee Login</Link></li>
-                <li><Link to="/monitoring">Track Application</Link></li>
-            </ul>
         </nav>
     );
 }

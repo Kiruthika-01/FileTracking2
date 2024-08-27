@@ -1,33 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "../cssfolder/openingPage.css";
 
 export default function OpeningPage() {
   return (
-    <div className="openingpage-card-container">
-      <div className="openingpage-welcome-text">Welcome to FileTracker App</div>
+    <div className="min-h-screen bg-white flex flex-col justify-center items-center">
+      <h1 className="text-4xl font-bold mb-12 text-black">Welcome to FileTracker App</h1>
       
-      <div className="openingpage-card-row">
-        <Link to="/admin" className="openingpage-card-link">
-          <div className="openingpage-card">
-            <h2>Admin Login</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Link to="/admin" className="w-full">
+          <div className="p-8 bg-black text-white rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+            <h2 className="text-2xl font-semibold text-center">Admin Login</h2>
           </div>
         </Link>
-        <Link to="/office" className="openingpage-card-link">
-          <div className="openingpage-card">
-            <h2>Office Login</h2>
+        <Link to="/office" className="w-full">
+          <div className="p-8 bg-black text-white rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+            <h2 className="text-2xl font-semibold text-center">Office Login</h2>
           </div>
         </Link>
-      </div>
-      <div className="openingpage-card-row">
-        <Link to="/employee" className="openingpage-card-link">
-          <div className="openingpage-card">
-            <h2>Employee Login</h2>
+        <Link to="/employee" className="w-full">
+          <div className="p-8 bg-black text-white rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+            <h2 className="text-2xl font-semibold text-center">Employee Login</h2>
           </div>
         </Link>
-        <Link to="/monitoring" className="openingpage-card-link">
-          <div className="openingpage-card">
-            <h2>Monitoring</h2>
+        <Link to="/monitoring" className="w-full">
+          <div className="p-8 bg-black text-white rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+            <h2 className="text-2xl font-semibold text-center">Monitoring</h2>
           </div>
         </Link>
       </div>

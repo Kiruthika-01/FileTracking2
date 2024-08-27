@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../cssfolder/officePage.css'; // Ensure the correct path to your CSS file
 import { AuthContext } from './context';
 import Navbar from './navbar';
 import DomainIcon from '@mui/icons-material/Domain';
@@ -45,33 +44,45 @@ export default function OfficePage() {
     };
 
     return (
-        <div>
+        <div className="min-h-screen bg-white flex flex-col">
             <Navbar />
-        <div className="office-page-container">
-            <div className="office-container">
-                <h1 className="office-title">
-                    <DomainIcon className="icon-title" style={{ fontSize: 40 }} />
-                    Office Login
-                </h1>
-                <form onSubmit={handleSubmit}>
-                    <label className="form-label">
-                        Email:
-                        <input className="form-input" type="email" value={officeMail} onChange={handleEmailChange} />
-                    </label>
-                    <br />
-                    <label className="form-label">
-                        Password:
-                        <input className="form-input" type="password" value={password} onChange={handlePasswordChange} />
-                    </label>
-                    <br />
-                </form>
-                {message && (
-                    <div className="response-message">{message}</div>
-                )}
+            <div className="flex flex-col items-center justify-center flex-grow p-8">
+                <div className="w-full max-w-md bg-black text-white rounded-lg shadow-lg p-8">
+                    <h1 className="text-3xl font-bold mb-6 flex items-center justify-center text-gray-300">
+                        <DomainIcon className="mr-3" style={{ fontSize: '40px' }} />
+                        Office Login
+                    </h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium mb-2 text-gray-300">Email:</label>
+                            <input 
+                                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+                                type="email" 
+                                value={officeMail} 
+                                onChange={handleEmailChange} 
+                            />
+                        </div>
+                        <div className="mb-6">
+                            <label className="block text-sm font-medium mb-2 text-gray-300">Password:</label>
+                            <input 
+                                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-gray-400"
+                                type="password" 
+                                value={password} 
+                                onChange={handlePasswordChange} 
+                            />
+                        </div>
+                        {message && (
+                            <div className="mb-4 text-center text-red-500">{message}</div>
+                        )}
+                        <button 
+                            className="w-full py-3 rounded-lg bg-gray-700 text-white font-bold hover:bg-gray-600 transition-colors duration-300"
+                            type="submit"
+                        >
+                            Login
+                        </button>
+                    </form>
+                </div>
             </div>
-            <button className="submit-button" type="submit" onClick={handleSubmit}>Login</button>
-
-        </div>
         </div>
     );
 }
