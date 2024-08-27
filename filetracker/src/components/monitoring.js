@@ -26,7 +26,7 @@ export default function Monitoring() {
     };
 
     return (
-        <div className="bg-white min-h-screen p-4">
+        <div className="bg-white min-h-screen p-4 pt-16">
             <Navbar />
             <div className="bg-gray-100 p-8 rounded-lg shadow-lg max-w-md mx-auto mt-8">
                 <h1 className="text-2xl font-bold text-center mb-6 flex items-center justify-center text-gray-800">
