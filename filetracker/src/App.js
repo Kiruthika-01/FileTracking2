@@ -26,6 +26,7 @@ import Pending from './components/peding';
 import RejectedApplications from './components/rejectedApplication';
 import OfficeGO from './components/officeGO';
 import EmployeeGO from './components/employeeGO';
+import Workload from './components/workload';
 
 function App() {
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(
@@ -124,6 +125,7 @@ function App() {
             <Route path="/pending" element={<Pending />} />
             <Route path="/officeGO" element={<OfficeGO />} />
             <Route path="/employeeGO" element={<EmployeeGO />} />
+            <Route path="/workload" element={<Workload />} />
           </Routes>
         </Router>
       </div>

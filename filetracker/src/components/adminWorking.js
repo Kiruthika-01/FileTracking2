@@ -25,6 +25,9 @@ export default function AdminWorking() {
                 <div className="card" onClick={() => handleCardClick('/delete-office')}>
                     <h2>Delete Office</h2>
                 </div>
+                <div className="card" onClick={() => handleCardClick('/workload')}>
+                    <h2>Workload Manager</h2>
+                </div>
             </div>
             <button className="logout-button" onClick={handleLogout}>Logout</button>
         </div>
